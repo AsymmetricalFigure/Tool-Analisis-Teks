@@ -70,21 +70,56 @@ Beberapa konsep penting antara lain:
 ## 3.1 Alur Kerja (Workflow)
 
 ```text
-Input
-   │
-   ▼
-Preprocessing
-(Case Folding + Hapus Tanda Baca)
-   │
-   ▼
-Tokenisasi
-   │
-   ▼
-Perhitungan Frekuensi Kata
-   │
-   ▼
-Output
-(Tabel Frekuensi Kata)
+                    START
+                      │
+                      ▼
+        Pengguna Memilih Menu Analisis
+                      │
+                      ▼
+             Input Teks dari Pengguna
+                      │
+                      ▼
+          Pembersihan Teks (Preprocessing)
+        ┌───────────────────────────────────┐
+        │ • Menghapus spasi berlebih        │
+        │ • Case Folding                    │
+        │ • Menghapus tanda baca            │
+        └───────────────────────────────────┘
+                      │
+                      ▼
+               Tokenisasi Kata
+                      │
+                      ▼
+        ┌───────────────────────────────────┐
+        │ Statistik Dasar                   │
+        │ • Jumlah karakter                 │
+        │ • Jumlah kata                     │
+        │ • Jumlah kata unik                │
+        │ • Jumlah kalimat                  │
+        └───────────────────────────────────┘
+                      │
+                      ▼
+        ┌───────────────────────────────────┐
+        │ Analisis Frekuensi Kata           │
+        │ • Menghapus Stopword              │
+        │ • Menghitung Term Frequency       │
+        │ • Menampilkan Kata Terbanyak      │
+        └───────────────────────────────────┘
+                      │
+                      ▼
+        ┌───────────────────────────────────┐
+        │ Analisis Sentimen                 │
+        │ • Kata Positif                    │
+        │ • Kata Negatif                    │
+        │ • Menghitung Skor Sentimen        │
+        │ • Menentukan Kategori             │
+        └───────────────────────────────────┘
+                      │
+                      ▼
+           Menampilkan Hasil Analisis
+                      │
+                      ▼
+                     END
 ```
 
 ### Tahapan Sistem
