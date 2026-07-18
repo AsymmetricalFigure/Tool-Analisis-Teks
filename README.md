@@ -2,87 +2,191 @@
 Kelompok 5, consisting Muhammad Husain and Irsyad Mulyahida Yanto
 ---
 
-Laporan:
+# 📄 Laporan Proyek Akhir
+## Tool Analisis Teks
 
-Laporan Proyek Akhir: Tool Analisis Teks
-Nama: Irshad
-Program Studi: Informatika
-Universitas: Universitas Al Azhar Indonesia
+| Informasi | Keterangan |
+|-----------|------------|
+| **Nama** | Irshad Mulyahida - 0112525004|
+| **Nama** | Muhammad Husain - 0112525010|
+| **Program Studi** | Informatika |
+| **Universitas** | Universitas Al Azhar Indonesia |
 
-Bab 1: Pendahuluan
-1.1 Latar Belakang
-Dalam era digital saat ini, data tekstual dihasilkan dalam jumlah yang sangat besar setiap harinya. Analisis data teks ini penting untuk mengekstrak informasi berharga. Proyek ini bertujuan untuk mengembangkan sebuah Tool Analisis Teks yang dapat memproses dan menganalisis korpus teks dengan efisien.
-1.2 Rumusan Masalah
-Bagaimana merancang sistem yang dapat melakukan pemrosesan awal (preprocessing) pada data teks kasar?
-Bagaimana mengimplementasikan ekstraksi fitur dan statistik dasar seperti frekuensi kata (Term Frequency) dari teks?
-1.3 Tujuan
-Membangun aplikasi atau skrip untuk membersihkan dan menganalisis data teks.
-Menghasilkan visualisasi atau laporan metrik teks dasar untuk keperluan analisis data.
+---
 
-Bab 2: Landasan Teori
-2.1 Pemrosesan Bahasa Alami (NLP)
-NLP (Natural Language Processing) adalah cabang ilmu komputer yang berfokus pada interaksi antara komputer dan bahasa manusia. Tahapan dasar dalam NLP meliputi tokenisasi, penghapusan stop words, dan stemming/lemmatization.
-2.2 Analisis Data dan Statistik
-Analisis teks sering kali melibatkan pendekatan statistik untuk memahami distribusi kata dan makna yang tersembunyi. Konsep probabilitas dasar dan distribusi frekuensi sangat krusial dalam menentukan bobot kata atau klasifikasi dokumen.
+# BAB I - Pendahuluan
 
-Bab 3: Perancangan Sistem
-3.1 Alur Kerja (Workflow)
-Sistem ini dirancang dengan alur kerja sebagai berikut:
-Input: Pengguna memasukkan teks kasar atau mengunggah file dokumen.
-Preprocessing: Sistem melakukan pembersihan teks (case folding, pembersihan tanda baca).
-Processing: Tokenisasi dan perhitungan statistik kata.
-Output: Sistem menampilkan hasil analisis berupa tabel frekuensi kata.
-3.2 Arsitektur Lingkungan
-Mengingat kemudahan dalam eksplorasi data, tahapan pengujian dan pemodelan awal disarankan dilakukan menggunakan lingkungan interaktif seperti Google Colab sebelum digabungkan menjadi sebuah aplikasi utuh (misalnya dengan bahasa Python atau C++ sesuai kebutuhan kinerja).
+## 1.1 Latar Belakang
 
-Bab 4: Implementasi dan Hasil
-4.1 Contoh Implementasi (Cuplikan Kode)
-Berikut adalah contoh logika dasar menggunakan Python untuk pembersihan dan tokenisasi (pendekatan ini juga dapat diadaptasi ke C/C++ jika efisiensi memori menjadi prioritas):
+Dalam era digital saat ini, data tekstual dihasilkan dalam jumlah yang sangat besar setiap harinya. Analisis data teks menjadi penting untuk mengekstrak informasi yang bernilai dari kumpulan data tersebut.
+
+Proyek ini bertujuan untuk mengembangkan sebuah **Tool Analisis Teks** yang mampu memproses serta menganalisis korpus teks secara efisien sehingga menghasilkan informasi statistik yang berguna.
+
+---
+
+## 1.2 Rumusan Masalah
+
+1. Bagaimana merancang sistem yang dapat melakukan **preprocessing** pada data teks mentah?
+2. Bagaimana mengimplementasikan ekstraksi fitur serta statistik dasar seperti **Term Frequency** dari suatu teks?
+
+---
+
+## 1.3 Tujuan
+
+- Membangun aplikasi atau skrip yang mampu membersihkan serta menganalisis data teks.
+- Menghasilkan visualisasi maupun laporan statistik dasar sebagai bahan analisis data.
+
+---
+
+# BAB II - Landasan Teori
+
+## 2.1 Pemrosesan Bahasa Alami (Natural Language Processing)
+
+**Natural Language Processing (NLP)** merupakan cabang ilmu komputer yang mempelajari interaksi antara komputer dan bahasa manusia.
+
+Tahapan dasar NLP meliputi:
+
+- Tokenisasi
+- Penghapusan *stop words*
+- Stemming atau Lemmatization
+
+---
+
+## 2.2 Analisis Data dan Statistik
+
+Analisis teks umumnya menggunakan pendekatan statistik untuk memahami distribusi kata serta makna yang tersembunyi di dalam dokumen.
+
+Beberapa konsep penting antara lain:
+
+- Distribusi Frekuensi
+- Probabilitas Dasar
+- Term Frequency (TF)
+- Pembobotan Kata
+
+---
+
+# BAB III - Perancangan Sistem
+
+## 3.1 Alur Kerja (Workflow)
+
+```text
+Input
+   │
+   ▼
+Preprocessing
+(Case Folding + Hapus Tanda Baca)
+   │
+   ▼
+Tokenisasi
+   │
+   ▼
+Perhitungan Frekuensi Kata
+   │
+   ▼
+Output
+(Tabel Frekuensi Kata)
+```
+
+### Tahapan Sistem
+
+| Tahap | Deskripsi |
+|-------|-----------|
+| **Input** | Pengguna memasukkan teks atau mengunggah dokumen |
+| **Preprocessing** | Case folding dan penghapusan tanda baca |
+| **Processing** | Tokenisasi serta perhitungan frekuensi kata |
+| **Output** | Menampilkan hasil analisis berupa tabel frekuensi kata |
+
+---
+
+## 3.2 Arsitektur Lingkungan
+
+Tahapan pengembangan dilakukan menggunakan lingkungan interaktif seperti **Google Colab** agar proses eksplorasi data dan pengujian lebih mudah.
+
+Setelah proses pengujian selesai, implementasi dapat dipindahkan ke aplikasi menggunakan bahasa seperti:
+
+- Python
+- C++
+- Bahasa lain sesuai kebutuhan
+
+---
+
+# BAB IV - Implementasi dan Hasil
+
+## 4.1 Contoh Implementasi
+
+```python
 import string
 from collections import Counter
 
 def preprocess_and_analyze(text):
-    # Case folding dan hapus tanda baca
+    # Case folding
     text = text.lower()
-    text = text.translate(str.maketrans('', '', string.punctuation))
-    
+
+    # Menghapus tanda baca
+    text = text.translate(
+        str.maketrans('', '', string.punctuation)
+    )
+
     # Tokenisasi
     tokens = text.split()
-    
-    # Hitung frekuensi
+
+    # Menghitung frekuensi kata
     word_counts = Counter(tokens)
+
     return word_counts.most_common(5)
+```
 
+---
 
-4.2 Simulasi Pengujian dan Hasil
-Pengujian dilakukan dengan memasukkan teks sampel berupa paragraf dokumen acak. Hasil ekstraksi 5 kata terbanyak didokumentasikan sebagai berikut:
-Peringkat
-Kata (Token)
-Frekuensi (Term Frequency)
- 
-1
-data
-15
-2
-sistem
-12
-3
-analisis
-10
-4
-teks
-8
-5
-informasi
-7
+## 4.2 Simulasi Pengujian
 
+Pengujian dilakukan menggunakan sebuah paragraf sebagai data masukan.
 
-Bab 5: Kesimpulan dan Saran
-5.1 Kesimpulan
-Tool Analisis Teks berhasil dirancang dengan fungsi dasar yang mampu melakukan pembersihan data teks dan menghitung statistik frekuensi kata. Logika pemrosesan ini menjadi landasan kuat untuk pengembangan analisis tingkat lanjut.
-5.2 Saran
-Untuk pengembangan selanjutnya, disarankan untuk menambahkan metode statistik yang lebih komprehensif atau mengimplementasikan logika probabilitas tingkat lanjut (misalnya Teorema Bayes untuk klasifikasi teks). Penggunaan bahasa yang lebih low-level seperti C++ pada modul-modul berat juga bisa menjadi bahan pertimbangan ke depannya.
+### Hasil Analisis
 
+| Peringkat | Kata (Token) | Frekuensi (Term Frequency) |
+|----------:|--------------|---------------------------:|
+| 1 | data | 15 |
+| 2 | sistem | 12 |
+| 3 | analisis | 10 |
+| 4 | teks | 8 |
+| 5 | informasi | 7 |
+
+---
+
+# BAB V - Kesimpulan dan Saran
+
+## 5.1 Kesimpulan
+
+Tool Analisis Teks berhasil dirancang dengan kemampuan dasar sebagai berikut:
+
+- Membersihkan data teks (*text preprocessing*)
+- Melakukan tokenisasi
+- Menghitung frekuensi kemunculan kata
+- Menampilkan statistik sederhana hasil analisis
+
+Implementasi tersebut menjadi dasar yang baik untuk pengembangan sistem analisis teks yang lebih kompleks.
+
+---
+
+## 5.2 Saran
+
+Pengembangan selanjutnya dapat dilakukan dengan menambahkan fitur seperti:
+
+- TF-IDF
+- Word Cloud
+- Analisis Sentimen
+- Naive Bayes untuk klasifikasi teks
+- Visualisasi statistik menggunakan Matplotlib
+- Optimasi performa menggunakan C++ pada modul yang membutuhkan efisiensi tinggi
+
+---
+
+# Referensi
+
+1. Jurafsky, D., & Martin, J. H. (2024). *Speech and Language Processing*.
+2. Bird, S., Klein, E., & Loper, E. *Natural Language Processing with Python*.
+3. Manning, C. D., Raghavan, P., & Schütze, H. *Introduction to Information Retrieval*.
 
 Coding:
 
