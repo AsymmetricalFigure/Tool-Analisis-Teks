@@ -1,8 +1,4 @@
-# Tool-Analisis-Teks
-Kelompok 5, consisting Muhammad Husain and Irsyad Mulyahida Yanto
----
-
-# 📄 Laporan Proyek Akhir
+# 📄 Laporan Proyek Akhir - Tool-Analisis-Teks
 ## Tool Analisis Teks
 
 | Informasi | Keterangan |
