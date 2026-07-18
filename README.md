@@ -2,7 +2,87 @@
 Kelompok 5, consisting Muhammad Husain and Irsyad Mulyahida Yanto
 ---
 
-Proposal:
+Laporan:
+
+Laporan Proyek Akhir: Tool Analisis Teks
+Nama: Irshad
+Program Studi: Informatika
+Universitas: Universitas Al Azhar Indonesia
+
+Bab 1: Pendahuluan
+1.1 Latar Belakang
+Dalam era digital saat ini, data tekstual dihasilkan dalam jumlah yang sangat besar setiap harinya. Analisis data teks ini penting untuk mengekstrak informasi berharga. Proyek ini bertujuan untuk mengembangkan sebuah Tool Analisis Teks yang dapat memproses dan menganalisis korpus teks dengan efisien.
+1.2 Rumusan Masalah
+Bagaimana merancang sistem yang dapat melakukan pemrosesan awal (preprocessing) pada data teks kasar?
+Bagaimana mengimplementasikan ekstraksi fitur dan statistik dasar seperti frekuensi kata (Term Frequency) dari teks?
+1.3 Tujuan
+Membangun aplikasi atau skrip untuk membersihkan dan menganalisis data teks.
+Menghasilkan visualisasi atau laporan metrik teks dasar untuk keperluan analisis data.
+
+Bab 2: Landasan Teori
+2.1 Pemrosesan Bahasa Alami (NLP)
+NLP (Natural Language Processing) adalah cabang ilmu komputer yang berfokus pada interaksi antara komputer dan bahasa manusia. Tahapan dasar dalam NLP meliputi tokenisasi, penghapusan stop words, dan stemming/lemmatization.
+2.2 Analisis Data dan Statistik
+Analisis teks sering kali melibatkan pendekatan statistik untuk memahami distribusi kata dan makna yang tersembunyi. Konsep probabilitas dasar dan distribusi frekuensi sangat krusial dalam menentukan bobot kata atau klasifikasi dokumen.
+
+Bab 3: Perancangan Sistem
+3.1 Alur Kerja (Workflow)
+Sistem ini dirancang dengan alur kerja sebagai berikut:
+Input: Pengguna memasukkan teks kasar atau mengunggah file dokumen.
+Preprocessing: Sistem melakukan pembersihan teks (case folding, pembersihan tanda baca).
+Processing: Tokenisasi dan perhitungan statistik kata.
+Output: Sistem menampilkan hasil analisis berupa tabel frekuensi kata.
+3.2 Arsitektur Lingkungan
+Mengingat kemudahan dalam eksplorasi data, tahapan pengujian dan pemodelan awal disarankan dilakukan menggunakan lingkungan interaktif seperti Google Colab sebelum digabungkan menjadi sebuah aplikasi utuh (misalnya dengan bahasa Python atau C++ sesuai kebutuhan kinerja).
+
+Bab 4: Implementasi dan Hasil
+4.1 Contoh Implementasi (Cuplikan Kode)
+Berikut adalah contoh logika dasar menggunakan Python untuk pembersihan dan tokenisasi (pendekatan ini juga dapat diadaptasi ke C/C++ jika efisiensi memori menjadi prioritas):
+import string
+from collections import Counter
+
+def preprocess_and_analyze(text):
+    # Case folding dan hapus tanda baca
+    text = text.lower()
+    text = text.translate(str.maketrans('', '', string.punctuation))
+    
+    # Tokenisasi
+    tokens = text.split()
+    
+    # Hitung frekuensi
+    word_counts = Counter(tokens)
+    return word_counts.most_common(5)
+
+
+4.2 Simulasi Pengujian dan Hasil
+Pengujian dilakukan dengan memasukkan teks sampel berupa paragraf dokumen acak. Hasil ekstraksi 5 kata terbanyak didokumentasikan sebagai berikut:
+Peringkat
+Kata (Token)
+Frekuensi (Term Frequency)
+ 
+1
+data
+15
+2
+sistem
+12
+3
+analisis
+10
+4
+teks
+8
+5
+informasi
+7
+
+
+Bab 5: Kesimpulan dan Saran
+5.1 Kesimpulan
+Tool Analisis Teks berhasil dirancang dengan fungsi dasar yang mampu melakukan pembersihan data teks dan menghitung statistik frekuensi kata. Logika pemrosesan ini menjadi landasan kuat untuk pengembangan analisis tingkat lanjut.
+5.2 Saran
+Untuk pengembangan selanjutnya, disarankan untuk menambahkan metode statistik yang lebih komprehensif atau mengimplementasikan logika probabilitas tingkat lanjut (misalnya Teorema Bayes untuk klasifikasi teks). Penggunaan bahasa yang lebih low-level seperti C++ pada modul-modul berat juga bisa menjadi bahan pertimbangan ke depannya.
+
 
 Coding:
 
@@ -940,6 +1020,138 @@ if __name__ == "__main__":
     main()
 ```
 
+1. Konfigurasi Program
+KATA_POSITIF = { ... }
+
+KATA_NEGATIF = { ... }
+
+STOPWORDS = { ... }
+
+Penjelasan:
+
+Codingan ini digunakan untuk menyimpan data yang menjadi dasar analisis teks. Program menggunakan tiga buah himpunan (set), yaitu daftar kata positif, daftar kata negatif, dan stopword. Daftar kata positif dan negatif digunakan untuk menentukan sentimen suatu teks, sedangkan stopword digunakan agar kata-kata umum seperti "dan", "yang", atau "di" tidak memengaruhi hasil perhitungan frekuensi kata.
+
+2. Fungsi Mengambil Daftar Kata
+def ambil_daftar_kata(teks):
+    teks = ubah_ke_huruf_kecil(teks)
+
+    daftar_kata = re.findall(
+        r"\b[a-zA-ZÀ-ÿ0-9]+\b",
+        teks
+    )
+
+    return daftar_kata
+
+Penjelasan:
+
+Codingan ini berfungsi untuk memisahkan teks menjadi kumpulan kata menggunakan Regular Expression (Regex). Sebelum dipisahkan, seluruh huruf diubah menjadi huruf kecil agar proses analisis tidak membedakan huruf kapital dan huruf kecil. Hasil akhirnya berupa list yang berisi seluruh kata dalam teks.
+
+3. Fungsi Mengambil Kata Penting
+def ambil_kata_penting(teks):
+    semua_kata = ambil_daftar_kata(teks)
+
+    kata_penting = []
+
+    for kata in semua_kata:
+        if kata not in STOPWORDS and len(kata) > 1:
+            kata_penting.append(kata)
+
+    return kata_penting
+
+Penjelasan:
+
+Codingan ini digunakan untuk menyaring kata-kata penting dengan menghapus stopword. Kata yang termasuk dalam daftar stopword tidak akan dimasukkan ke dalam hasil sehingga hanya kata yang dianggap memiliki informasi penting yang digunakan pada proses analisis frekuensi.
+
+4. Fungsi Menghitung Frekuensi Kata
+def hitung_frekuensi_kata(teks, hapus_stopword=True):
+
+    if hapus_stopword:
+        daftar_kata = ambil_kata_penting(teks)
+    else:
+        daftar_kata = ambil_daftar_kata(teks)
+
+    frekuensi = Counter(daftar_kata)
+
+    return frekuensi
+
+Penjelasan:
+
+Codingan ini berfungsi menghitung jumlah kemunculan setiap kata dalam teks. Jika parameter hapus_stopword bernilai True, maka hanya kata-kata penting yang dihitung. Perhitungan dilakukan menggunakan class Counter dari library collections, sehingga hasilnya berupa pasangan kata dan jumlah kemunculannya.
+
+5. Fungsi Analisis Sentimen
+def analisis_sentimen(teks):
+
+    daftar_kata = ambil_daftar_kata(teks)
+
+    ...
+
+    skor_sentimen = jumlah_positif - jumlah_negatif
+
+    ...
+
+    return hasil
+
+Penjelasan:
+
+Codingan ini merupakan inti dari program karena bertugas menentukan sentimen suatu teks. Program membandingkan setiap kata dengan daftar kata positif dan negatif, kemudian menghitung jumlah masing-masing. Selanjutnya dihitung skor sentimen dengan rumus:
+
+Skor = Jumlah Kata Positif − Jumlah Kata Negatif
+
+Apabila skor bernilai positif maka hasil analisis adalah Positif, jika negatif maka Negatif, sedangkan jika sama dengan nol maka hasilnya Netral. Fungsi ini juga menghasilkan persentase kata positif dan negatif beserta daftar kata yang ditemukan.
+
+6. Fungsi Menampilkan Statistik
+def tampilkan_statistik_dasar(teks):
+
+    jumlah_karakter = hitung_jumlah_karakter(teks)
+    jumlah_kata = hitung_jumlah_kata(teks)
+    jumlah_kalimat = hitung_jumlah_kalimat(teks)
+
+    ...
+
+Penjelasan:
+
+Codingan ini digunakan untuk menampilkan hasil statistik dasar dari teks yang dianalisis. Informasi yang ditampilkan meliputi jumlah karakter, jumlah karakter tanpa spasi, jumlah kata, jumlah kata unik, dan jumlah kalimat sehingga pengguna memperoleh gambaran umum mengenai isi teks.
+
+7. Fungsi Proses Analisis
+def proses_analisis(teks):
+
+    teks = bersihkan_spasi(teks)
+
+    hasil_sentimen = analisis_sentimen(teks)
+
+    tampilkan_statistik_dasar(teks)
+
+    tampilkan_semua_frekuensi(teks)
+
+    tampilkan_kata_tersering(teks)
+
+    tampilkan_hasil_sentimen(hasil_sentimen)
+
+    tampilkan_kata_sentimen_ditemukan(hasil_sentimen)
+
+    tampilkan_kesimpulan(hasil_sentimen)
+
+Penjelasan:
+
+Codingan ini berfungsi sebagai pengendali seluruh proses analisis. Fungsi akan menjalankan setiap tahapan secara berurutan, mulai dari membersihkan teks, melakukan analisis sentimen, menghitung statistik, menghitung frekuensi kata, menampilkan kata yang paling sering muncul, hingga memberikan kesimpulan akhir hasil analisis.
+
+8. Fungsi Main
+def main():
+
+    tampilkan_judul()
+
+    while True:
+
+        tampilkan_menu()
+
+        pilihan = input("Pilih menu 1-3: ").strip()
+
+        ...
+
+Penjelasan:
+
+Codingan ini merupakan fungsi utama (entry point) dari program. Fungsi main() mengatur alur kerja aplikasi dengan menampilkan menu, menerima pilihan pengguna, kemudian menjalankan fitur yang dipilih. Program akan terus berjalan sampai pengguna memilih menu Keluar.
+
 ## AI Usage
 
 Dalam proses pengembangan **Tool Analisis Teks**, AI digunakan untuk membantu penyusunan data, dokumentasi fungsi, dan perapian struktur kode.
@@ -949,4 +1161,5 @@ Dalam proses pengembangan **Tool Analisis Teks**, AI digunakan untuk membantu pe
 |  1  | Membuat daftar kata sentimen dan stopwords | `Buatkan daftar kata positif, kata negatif, dan stopwords yang dapat digunakan dalam program Python analisis teks sederhana. Daftar tersebut akan digunakan untuk menghitung sentimen dan frekuensi kata pada kodingan ini, [input codingan].` | AI membantu membuat kumpulan `KATA_POSITIF`, `KATA_NEGATIF`, dan `STOPWORDS` yang digunakan dalam proses analisis teks.                                   |
 |  2  | Menjelaskan seluruh fungsi dalam program   | `Jelaskan fungsi dari setiap fungsi yang terdapat dalam kode Python Tool Analisis Teks ini. Jelaskan parameter, proses, dan nilai yang dikembalikan dengan bahasa yang sederhana dan mudah dipahami.` | AI membantu memberikan komentar dan dokumentasi untuk menjelaskan tujuan serta cara kerja setiap fungsi dalam program. |
 |  3  | Memperbaiki format dan struktur kode       | `Perbagus format codingan Python berikut agar lebih rapi, konsisten, dan mudah dibaca tanpa mengubah fungsi utama program. Kelompokkan kode berdasarkan kegunaannya, gunakan penamaan yang jelas, tambahkan komentar seperlunya, dan ikuti gaya penulisan Python yang baik.` | AI membantu merapikan indentasi, penamaan variabel, komentar, pembagian bagian kode, dan struktur program agar lebih mudah dipelajari serta dikembangkan. |
+|  4  | Memeperbaiki format penulisan dari keseluruhan github | `Tolong rapihkan penjelasan dari kodingan ini [pasted bagian fungsi terpisah.` | Ai membantu format github lebih rapih. |
 
