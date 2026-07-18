@@ -939,3 +939,18 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+## AI Usage
+
+Dalam proses pengembangan **Tool Analisis Teks**, AI digunakan untuk membantu penyusunan data, dokumentasi fungsi, dan perapian struktur kode.
+
+| No. | Penggunaan AI                              | Prompt yang Digunakan                                                                                                                                                                                                                                                        | Hasil Penggunaan                                                                                                                                          |
+| :-: | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|  1  | Membuat daftar kata sentimen dan stopwords | `Buatkan daftar kata positif, kata negatif, dan stopwords Bahasa Indonesia yang dapat digunakan dalam program Python analisis teks sederhana. Daftar tersebut akan digunakan untuk menghitung sentimen dan frekuensi kata.`                                                  | AI membantu membuat kumpulan `KATA_POSITIF`, `KATA_NEGATIF`, dan `STOPWORDS` yang digunakan dalam proses analisis teks.                                   |
+|  2  | Menjelaskan seluruh fungsi dalam program   | `Jelaskan fungsi dari setiap function yang terdapat dalam kode Python Tool Analisis Teks. Jelaskan parameter, proses, dan nilai yang dikembalikan dengan bahasa yang sederhana dan mudah dipahami.`                                                                          | AI membantu memberikan komentar dan dokumentasi untuk menjelaskan tujuan serta cara kerja setiap fungsi dalam program.                                    |
+|  3  | Memperbaiki format dan struktur kode       | `Perbagus format codingan Python berikut agar lebih rapi, konsisten, dan mudah dibaca tanpa mengubah fungsi utama program. Kelompokkan kode berdasarkan kegunaannya, gunakan penamaan yang jelas, tambahkan komentar seperlunya, dan ikuti gaya penulisan Python yang baik.` | AI membantu merapikan indentasi, penamaan variabel, komentar, pembagian bagian kode, dan struktur program agar lebih mudah dipelajari serta dikembangkan. |
+
+### Catatan Penggunaan AI
+
+AI digunakan sebagai alat bantu dalam proses pengembangan. Hasil yang diberikan oleh AI diperiksa, disesuaikan, dan diuji kembali sebelum dimasukkan ke dalam program akhir.
+
