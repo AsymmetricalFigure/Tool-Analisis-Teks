@@ -8,6 +8,7 @@
 | **Program Studi** | Informatika |
 | **Universitas** | Universitas Al Azhar Indonesia |
 
+Akses codingan colabnya di [Colab Proyek Akhir](https://colab.research.google.com/drive/1WuAOmtlD-FX-FDoaj2cioGKy-R1vj7qF?usp=sharing)
 ---
 
 # BAB I - Pendahuluan
